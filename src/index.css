@@ -78,3 +78,49 @@ h1 {
 .btn-solid {
   background: #c2394f;
 }
+
+.calendar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.rdp-root {
+  --rdp-accent-color: #c2394f;
+  --rdp-accent-background-color: rgba(194, 57, 79, 0.25);
+}
+
+.times {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  max-width: 360px;
+}
+
+.chip {
+  background: transparent;
+  color: #f5e9ea;
+  border: 1px solid #5a2a33;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.chip:hover {
+  border-color: #c2394f;
+}
+
+.chip-active {
+  background: #c2394f;
+  border-color: #c2394f;
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
