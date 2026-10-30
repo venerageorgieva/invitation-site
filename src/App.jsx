@@ -6,6 +6,7 @@ import Invite from './components/Invite'
 import Calendar from './components/Calendar'
 import Activities from './components/Activities'
 import Final from './components/Final'
+import { sendAnswers } from './sendAnswers'
 
 export default function App() {
   const [step, setStep] = useState('welcome')
@@ -31,15 +32,17 @@ export default function App() {
           }}
         />
       )}
-      {step === 'activity' && (
-        <Activities
-          key="activity"
-          onNext={(activities) => {
-            setAnswers((a) => ({ ...a, activities }))
-            setStep('final')
-          }}
-        />
-      )}
+     {step === 'activity' && (
+  <Activities
+    key="activity"
+    onNext={(activities) => {
+      const all = { ...answers, activities }
+      setAnswers(all)
+      sendAnswers(all).catch((err) => console.error('Email failed', err))
+      setStep('final')
+    }}
+  />
+)}
       {step === 'final' && <Final key="final" />}
     </AnimatePresence>
   )
