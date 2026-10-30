@@ -62,3 +62,19 @@ h1 {
   font-size: 4rem;
   transform-origin: 50% 200px;
 }
+
+.question {
+  font-size: 1.4rem;
+  margin: 0 0 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-solid {
+  background: #c2394f;
+}
