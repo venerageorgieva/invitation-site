@@ -4,6 +4,8 @@ import Welcome from './components/Welcome'
 import Roses from './components/Roses'
 import Invite from './components/Invite'
 import Calendar from './components/Calendar'
+import Activities from './components/Activities'
+import Final from './components/Final'
 
 export default function App() {
   const [step, setStep] = useState('welcome')
@@ -30,8 +32,15 @@ export default function App() {
         />
       )}
       {step === 'activity' && (
-        <h1 key="activity">Следва избор на място...</h1>
+        <Activities
+          key="activity"
+          onNext={(activities) => {
+            setAnswers((a) => ({ ...a, activities }))
+            setStep('final')
+          }}
+        />
       )}
+      {step === 'final' && <Final key="final" />}
     </AnimatePresence>
   )
 }
